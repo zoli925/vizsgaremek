@@ -5,9 +5,12 @@ import Pages.HomePage;
 import Pages.Registration;
 import TestEnvironment.TestEnvironment;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class TestRegistration extends TestEnvironment {
+
+    @Disabled
     @Test
     public void TestRegistrationWithValidData() {
         HomePage homePage = new HomePage(driver);

@@ -17,6 +17,7 @@ public class Constant<a> {
     public static final String LOGIN_NAME_VALUE = "VaskoZoli";
     public static final String LOGIN_PASSWORD_VALUE = "VaskoZoli1234";
     public static final By LOGIN_NAME_COMPARE = By.xpath("//*[@id=\"pt-userpage\"]/a");
+    //registration
     public static final String REGISTRATION_NAME = "VZolika";
     public static final String REGISTRATION_PASSWORD = "Vzolik1234";
     public static final String REGISTRATION_PASSWORD2 = "Vzolika1234";
@@ -31,8 +32,11 @@ public class Constant<a> {
     public static final By POLICY_LINK = By.id("footer-places-privacy");
 
     // logout
-    public static final By LOGOUT_LINK  = By.xpath("//*[@id=\"pt-logout\"]/a");
-
-
-
+    public static final By LOGOUT_LINK = By.xpath("//*[@id=\"pt-logout\"]/a");
+    //new data
+    public static final By USER_NAME = By.xpath("//*[@id=\"pt-userpage\"]/a");
+    public static final By TALK_BUTTON = By.xpath("//*[@id=\"ca-talk\"]/a");
+    public static final By INPUT_FIELD = By.xpath("//*[@id=\"wpTextbox1\"]");
+    public static final String NEW_DATA = "Vizsgaremek";
+    public static final By SHOW_PREVIEW_BUTTON = By.xpath("//*[@id=\"wpPreview\"]");
 }

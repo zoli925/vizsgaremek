@@ -8,4 +8,5 @@ public class DataModify {
     public DataModify(WebDriver driver) {
         this.driver = driver;
     }
+
 }
