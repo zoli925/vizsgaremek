@@ -1,3 +1,6 @@
+import General.Constant;
+import Pages.HomePage;
+import Pages.Registration;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
@@ -21,6 +24,7 @@ public class WikipediaTest {
     void setDriver(){
         WebDriverManager.chromedriver().setup();
         ChromeOptions options=new ChromeOptions();
+        System.setProperty("webdriver.chrome.driver", "C:/Users/DELL/Downloads/chromedriver_win32/chromedriver.exe");
         //options.addArguments("--disable-notifications");
         options.addArguments("start-maximized"); // teljes képernyőőben való használat
         options.addArguments("--no-sandbox");
@@ -30,28 +34,25 @@ public class WikipediaTest {
         driver.get(URL);
     }
 
-  /*  @Test
+   @Test
     public void WebTest() {
         String url = driver.getCurrentUrl();
-        assertEquals("https://en.wikipedia.org/wiki/Main_Page", url);
-    }*/
+        Assertions.assertEquals("https://en.wikipedia.org/wiki/Main_Page", url);
+    }
+
 
 
 
 
     @Test
-    public void loginWikipedia() {
-        String username = "VaskoZoli";
-        String password = "VaskoZoli1234";
-        driver.findElement(By.id("pt-login")).click();
-        driver.findElement(By.id("wpName1")).sendKeys(username);
-        driver.findElement(By.id("wpPassword1")).sendKeys(password);
-        driver.findElement(By.id("wpLoginAttempt")).click();
-        Assertions.assertEquals(username, driver.findElement((By.xpath("//*[@id=\"pt-userpage\"]/a"))).getText());
+    public void registrationWikipedia(){
+        driver.navigate().to("https://en.wikipedia.org/wiki/Main_Page");
+
     }
 
     @Test
     public void searchSelenium(){
+        driver.navigate().to("https://en.wikipedia.org/wiki/Main_Page");
         driver.findElement(By.id("searchInput")).sendKeys("Selenium (software)");
         driver.findElement(By.id("searchButton")).click();
         Assertions.assertEquals("https://en.wikipedia.org/wiki/Selenium_(software)", driver.getCurrentUrl());
@@ -61,6 +62,7 @@ public class WikipediaTest {
     @Test
     public void searchFramework(){
         //WebDriverWait wait = new WebDriverWait(driver, 5);
+        driver.navigate().to("https://en.wikipedia.org/wiki/Main_Page");
         driver.findElement(By.id("searchInput")).sendKeys("Framework");
         driver.findElement(By.id("searchInput")).sendKeys(Keys.ENTER);
         new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"mw-content-text\"]/div[1]/ul[1]/li[1]/a")));
@@ -68,6 +70,17 @@ public class WikipediaTest {
         driver.findElement(By.xpath("//*[@id=\"mw-content-text\"]/div[1]/ul[1]/li[1]/a")).click();
 
         Assertions.assertEquals("https://en.wikipedia.org/wiki/Ajax_(programming)", driver.getCurrentUrl());
+    }
+
+    @Test
+    public void TestRegistrationWithValidData() {
+        HomePage homePage = new HomePage(driver);
+        homePage.clickRegLink();
+        Registration registration = new Registration(driver);
+        registration.Registration(Constant.REGISTRAION_USERNAME_VALUE, Constant.REGISTRATION_PASSWORD_VALUE, Constant.REGISTRATION_EMAIL_VALUE);
+        String expected = Constant.REGISTRATION_LINK;
+        String actual = driver.getCurrentUrl();
+        Assertions.assertEquals("https://en.wikipedia.org/w/index.php?title=Main_Page&gettingStartedReturn=true",driver.getCurrentUrl());
     }
 
     @AfterEach

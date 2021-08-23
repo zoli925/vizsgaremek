@@ -4,9 +4,9 @@ import org.openqa.selenium.By;
 
 import java.awt.*;
 
-public class Constant {
+public class Constant<a> {
     //HomePage
-    public static final String MAIN_URL = "https://en.wikipedia.org/";
+    public static final String MAIN_URL = "https://en.wikipedia.org/wiki/Main_Page";
     public static final By HOME_LOGIN_LINK = By.id("pt-login");
     public static final String HOME_LOGIN_URL = "https://en.wikipedia.org/w/index.php?title=Special:UserLogin&returnto=Main+Page";
 
@@ -22,12 +22,17 @@ public class Constant {
     public static final String REGISTRATION_PASSWORD2 = "Vzolika1234";
     public static final String REGISTRATION_EMAIL = "vaskozolika@gmail.com";
     public static final By REGISTRATION_CREAT_BUTTON = By.xpath("//*[@id=\"wpCreateaccount\"]");
-    public static final String REGISTRAION_USERNAME_VALUE = "Vzolika";
-    public static final String REGISTRATION_EMAIL_VALUE = "vaskozolika@freemail.hu";
-    public static final String REGISTRATION_PASSWORD_VALUE = "Vzolika1234";
+    public static final String REGISTRAION_USERNAME_VALUE = "Vzolika1";
+    public static final String REGISTRATION_EMAIL_VALUE = "vaskozolika1@freemail.hu";
+    public static final String REGISTRATION_PASSWORD_VALUE = "Vzolika12345";
     public static final String REGISTRATION_LINK = "https://en.wikipedia.org/w/index.php?title=Main_Page&gettingStartedReturn=true";
 
     //privacy policy
     public static final By POLICY_LINK = By.id("footer-places-privacy");
+
+    // logout
+    public static final By LOGOUT_LINK  = By.xpath("//*[@id=\"pt-logout\"]/a");
+
+
 
 }
