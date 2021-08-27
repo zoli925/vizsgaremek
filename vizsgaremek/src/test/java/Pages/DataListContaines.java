@@ -2,10 +2,10 @@ package Pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class DataList {
+public class DataListContaines {
     private WebDriver driver;
 
-    public DataList(WebDriver driver) {
+    public DataListContaines(WebDriver driver) {
         this.driver = driver;
     }
 }
