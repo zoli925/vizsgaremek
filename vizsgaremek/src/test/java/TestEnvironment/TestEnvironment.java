@@ -22,13 +22,10 @@ public class TestEnvironment {
 
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        //options.addArguments("--disable-notifications");
         options.addArguments("start-maximized"); // teljes képernyőőben való használat
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--incognito");
         //options.addArguments("--headless");  //a gitHub használatához tedd vissza
         driver = new ChromeDriver(options); // új böngésző nyitása az opciókkal
-
 
         driver.navigate().to(Constant.MAIN_URL);
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
